@@ -44,8 +44,8 @@ Domyślny URL: http://127.0.0.1:8000
 
 **Zarządzanie zakazanymi Pokémonami**
 
-GET /banned – pobiera listę zakazanych Pokémonów (wymaga nagłówka X-SUPER-SECRET-KEY)
-POST /banned – dodaje zakazanego Pokémona, body: {"name": "pikachu"}
+GET /banned – pobiera listę zakazanych Pokémonów (wymaga nagłówka X-SUPER-SECRET-KEY)<br>
+POST /banned – dodaje zakazanego Pokémona, body: {"name": "pikachu"}<br>
 DELETE /banned/{id} – usuwa zakazanego Pokémona po ID
 
 **Pobieranie informacji o Pokémonie**
@@ -55,7 +55,7 @@ GET /pokemon/{name} – pobiera informacje o jednym Pokémonie
 POST /info – pobiera informacje o liście Pokémonów, body: {"pokemons": ["pikachu","bulbasaur"]}, ignoruje zakazane
 
 **Autoryzacja**
-Endpointy /banned wymagają nagłówka X-SUPER-SECRET-KEY.
+Endpointy /banned wymagają nagłówka X-SUPER-SECRET-KEY.<br>
 Niepoprawny lub brakujący klucz zwraca 401 Unauthorized.
 
 

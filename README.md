@@ -1,3 +1,68 @@
+# Pokemon Task 
+
+Serwis do pobierania informacji o Pokemonach z wykorzystaniem publicznego PokeAPI. Projekt oparty na Laravel.
+
+---
+### Uruchomienie projektu
+
+1. Sklonuj repozytorium i przejdź do katalogu projektu.
+```bash
+git clone https://github.com/vlivv/pokemon-task.git
+cd pokemon-task
+```
+
+2. Zainstaluj zależności.
+```bash
+composer install
+```
+
+3. Skopiuj plik środowiskowy .env:
+```bash
+cp .env.example .env
+```
+
+4. Ustaw klucz SUPER_SECRET_KEY w .env:
+```bash
+SUPER_SECRET_KEY=123
+```
+
+5. Wygeneruj klucz aplikacji Laravel.
+```bash
+php artisan key:generate
+```
+
+6. Uruchom serwer lokalny.
+```bash
+php artisan serve
+```
+
+Domyślny URL: http://127.0.0.1:8000
+
+---
+
+### Endpoints
+
+**Zarządzanie zakazanymi Pokémonami**
+
+GET /banned – pobiera listę zakazanych Pokémonów (wymaga nagłówka X-SUPER-SECRET-KEY)
+POST /banned – dodaje zakazanego Pokémona, body: {"name": "pikachu"}
+DELETE /banned/{id} – usuwa zakazanego Pokémona po ID
+
+**Pobieranie informacji o Pokémonie**
+GET /pokemon/{name} – pobiera informacje o jednym Pokémonie
+
+**Pobieranie informacji o wielu Pokémonach**
+POST /info – pobiera informacje o liście Pokémonów, body: {"pokemons": ["pikachu","bulbasaur"]}, ignoruje zakazane
+
+**Autoryzacja**
+Endpointy /banned wymagają nagłówka X-SUPER-SECRET-KEY.
+Niepoprawny lub brakujący klucz zwraca 401 Unauthorized.
+
+
+---
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
